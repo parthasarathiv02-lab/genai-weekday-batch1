@@ -7,6 +7,7 @@ A streamlined guide for setting up Python, Git, VS Code, Jupyter, LangChain, and
 ## 📋 Quick Overview
 
 This guide covers:
+
 1. **Python** - Python installation
 2. **Git & GitHub** - Version control and remote repository access
 3. **VS Code** - Code editor with Jupyter extension
@@ -22,46 +23,58 @@ This guide covers:
 ### Install Python
 
 **Windows:**
-```bash
-# Download Python 3.14.3 installer:
-https://www.python.org/ftp/python/3.14.3/python-3.14.3-amd64.exe
 
+bash
+
+```bash
+# Download Python 3.12.10 installer:
+https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe
 # During installation:
 # ✅ CHECK "Add Python to PATH" (IMPORTANT!)
 # ✅ CHECK "Install for all users" (optional)
 ```
 
 **Linux (Ubuntu/Debian):**
+
+bash
+
 ```bash
-sudo apt update && sudo apt install python3 python3-pip python3-venv -y
+sudoapt update &&sudoaptinstall python3.12 python3-pip python3-venv -y
 ```
 
 **Linux (Fedora):**
+
+bash
+
 ```bash
-sudo dnf install python3 python3-pip -y
+sudo dnf install python3.12 python3-pip -y
 ```
 
 **macOS:**
+
+bash
+
 ```bash
 # Using Homebrew (recommended):
-brew install python
-
-# Or download from: https://www.python.org/downloads/
+brew install python@3.12
+# Or download from: https://www.python.org/downloads/release/python-31210/
 ```
 
-### Verify Installation
+#### Verify Installation
+
+bash
+
 ```bash
-python --version  # Should show Python 3.14.3
+python --version  # Should show Python 3.12.10
 pip --version
 ```
-
----
 
 ## 2. Git & GitHub Setup
 
 ### Install Git
 
 **Windows:**
+
 ```bash
 # Download and install from:
 https://git-scm.com/download/win
@@ -70,11 +83,13 @@ winget install Git.Git
 ```
 
 **Linux (Ubuntu/Debian):**
+
 ```bash
 sudo apt update && sudo apt install git -y
 ```
 
 **macOS:**
+
 ```bash
 # Using Homebrew:
 brew install git
@@ -83,6 +98,7 @@ xcode-select --install
 ```
 
 ### Configure Git
+
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
@@ -91,7 +107,6 @@ git config --global user.email "your.email@example.com"
 ### Setup GitHub
 
 1. **Create account**: [github.com/signup](https://github.com/signup)
-
 2. **That's it!** Git will prompt for credentials when you push/pull. Use HTTPS URLs for repositories.
 
 ---
@@ -99,6 +114,7 @@ git config --global user.email "your.email@example.com"
 ## 3. VS Code Installation
 
 **Windows:**
+
 ```bash
 # Download from: https://code.visualstudio.com/
 # Or use winget:
@@ -106,6 +122,7 @@ winget install Microsoft.VisualStudioCode
 ```
 
 **Linux:**
+
 ```bash
 # Using Snap (most distros):
 sudo snap install code --classic
@@ -114,6 +131,7 @@ sudo snap install code --classic
 ```
 
 **macOS:**
+
 ```bash
 brew install --cask visual-studio-code
 ```
@@ -121,6 +139,7 @@ brew install --cask visual-studio-code
 ### Install Jupyter Extension
 
 **Method 1: Via VS Code UI**
+
 1. Open VS Code
 2. Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS)
 3. Search for "Jupyter"
@@ -143,11 +162,13 @@ python -m venv venv
 ### Activate Virtual Environment
 
 **Windows (CMD):**
+
 ```cmd
 venv\Scripts\activate.bat
 ```
 
 **Windows (PowerShell):**
+
 ```powershell
 venv\Scripts\Activate.ps1
 # If you get an error, run this once as admin:
@@ -155,11 +176,13 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 **Linux/macOS:**
+
 ```bash
 source venv/bin/activate
 ```
 
 ### Verify Activation
+
 ```bash
 # You should see (venv) in your prompt
 # Check Python location:
@@ -168,6 +191,7 @@ where python  # Windows
 ```
 
 ### Deactivate
+
 ```bash
 deactivate
 ```
@@ -177,11 +201,13 @@ deactivate
 ## 5. Jupyter Installation
 
 **Install globally (recommended for beginners):**
+
 ```bash
 pip install jupyter jupyterlab
 ```
 
 **Launch Jupyter:**
+
 ```bash
 # Jupyter Notebook (classic):
 jupyter notebook
@@ -191,6 +217,7 @@ jupyter lab
 ```
 
 **Use Jupyter in VS Code:**
+
 1. Create a `.ipynb` file in VS Code
 2. VS Code will automatically use the Jupyter extension
 3. Select your venv as the kernel (click kernel picker in top-right)
@@ -202,11 +229,13 @@ jupyter lab
 ### Install LangChain
 
 **Basic installation:**
+
 ```bash
 pip install langchain langchain-community
 ```
 
 **Install from requirements.txt (recommended):**
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -214,6 +243,7 @@ pip install -r requirements.txt
 ### Requirements.txt Contents
 
 The included `requirements.txt` contains:
+
 - **LangChain Core**: Framework and community integrations
 - **LLM Providers**: OpenAI, Anthropic (Claude), Google Gemini, Ollama
 - **Vector Stores**: ChromaDB, FAISS (for RAG applications)
@@ -222,6 +252,7 @@ The included `requirements.txt` contains:
 ### Environment Variables
 
 Create a `.env` file in your project root:
+
 ```bash
 # .env
 OPENAI_API_KEY=your_openai_key_here
@@ -230,6 +261,7 @@ GOOGLE_API_KEY=your_google_key_here
 ```
 
 **Load in Python:**
+
 ```python
 from dotenv import load_dotenv
 load_dotenv()
@@ -242,17 +274,20 @@ load_dotenv()
 ### Install Ollama
 
 **Windows:**
+
 ```bash
 # Download from: https://ollama.ai/download/windows
 # Run the installer
 ```
 
 **Linux:**
+
 ```bash
 curl -fsSL https://ollama.ai/install.sh | sh
 ```
 
 **macOS:**
+
 ```bash
 # Download from: https://ollama.ai/download/mac
 # Or use Homebrew:
@@ -282,3 +317,49 @@ response = llm.invoke("What is LangChain?")
 print(response)
 ```
 
+**Windows:**
+
+bash
+
+```bash
+# Download Python 3.12.10 installer:
+https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe
+# During installation:
+# ✅ CHECK "Add Python to PATH" (IMPORTANT!)
+# ✅ CHECK "Install for all users" (optional)
+```
+
+**Linux (Ubuntu/Debian):**
+
+bash
+
+```bash
+sudoapt update &&sudoaptinstall python3.12 python3-pip python3-venv -y
+```
+
+**Linux (Fedora):**
+
+bash
+
+```bash
+sudo dnf install python3.12 python3-pip -y
+```
+
+**macOS:**
+
+bash
+
+```bash
+# Using Homebrew (recommended):
+brew install python@3.12
+# Or download from: https://www.python.org/downloads/release/python-31210/
+```
+
+#### Verify Installation
+
+bash
+
+```bash
+python --version  # Should show Python 3.12.10
+pip --version
+```
